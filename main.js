@@ -7,7 +7,8 @@
 // const etaPasseggero = parseInt(prompt('Quanti anni hai?'));
 
 const kmPasseggero = document.getElementById('km');
-const etaPasseggero = document.querySelector('.eta-passeggero');
+// const etaPasseggero = document.querySelector('.eta-passeggero');
+const etaPasseggero = document.getElementById('eta');
 const bottoneGenera = document.getElementById('genera');
 const bottoneReset = document.getElementById('reset');
 const nomeCognome = document.getElementById('nome-cognome');
@@ -22,8 +23,8 @@ console.log(nomeCognome.value);
 
 bottoneGenera.addEventListener('click', function () {
   const prezzoKm = kmPasseggero.value * 0.21;
-  const prezzoMinori = (prezzoKm * 0.8).toFixed(2);
-  const prezzoOver65 = (prezzoKm * 0.6).toFixed(2);
+  const prezzoMinori = parseFloat(prezzoKm * 0.8);
+  const prezzoOver65 = parseFloat(prezzoKm * 0.6);
 
   console.log(`Km da percorrere: ${kmPasseggero.value} Km`);
   console.log(`Il passeggero è: ${etaPasseggero.value}`);
@@ -50,6 +51,7 @@ bottoneGenera.addEventListener('click', function () {
 bottoneReset.addEventListener('click', function () {
   kmPasseggero.value = '';
   etaPasseggero.value = '';
+  nomeCognome.value = '';
 
   biglietto.classList.add('hidden');
 });
